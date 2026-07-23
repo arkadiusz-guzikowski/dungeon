@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnj3plh8unkty"
+path="res://.godot/imported/Lochy Zamek.mp3-521e4ebece2d50ca6906be63e4bd1119.mp3str"
+
+[deps]
+
+source_file="res://sounds/Lochy Zamek.mp3"
+dest_files=["res://.godot/imported/Lochy Zamek.mp3-521e4ebece2d50ca6906be63e4bd1119.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

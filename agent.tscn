@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://d2cqdiwmkwwki"]
+
+[ext_resource type="Script" uid="uid://bp2480fu8wi0h" path="res://node_2d.gd" id="1_jv27j"]
+[ext_resource type="Script" uid="uid://dtay6jpjsoqhw" path="res://skill_check_visual.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://twa70sa35j8h" path="res://obrazy/ekranloch.png" id="3"]
+[ext_resource type="Shader" uid="uid://b7j55v3bnwjty" path="res://background_blur.gdshader" id="4"]
+[ext_resource type="Script" uid="uid://dme80lsgkmfwk" path="res://sound_settings.gd" id="5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1"]
+shader = ExtResource("4")
+shader_parameter/blur_amount = 4.0
+shader_parameter/desaturate = 0.5
+shader_parameter/darken = 0.3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 120.0
+
+[node name="Node2D" type="Node2D" unique_id=1559203392]
+script = ExtResource("1_jv27j")
+target_size = 40.0
+critical_size = 17.0
+smoothness = 0.5
+
+[node name="SoundSettings" type="Node" parent="." unique_id=2100884035]
+script = ExtResource("5")
+game_music_volume = 10.0
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=2146859705]
+layer = -1
+
+[node name="Background" type="Sprite2D" parent="BackgroundLayer" unique_id=831530399]
+material = SubResource("ShaderMaterial_1")
+position = Vector2(576, 324)
+texture = ExtResource("3")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=872129173]
+zoom = Vector2(1.2, 1.2)
+
+[node name="SkillCheckArea" type="Node2D" parent="." unique_id=1730546722]
+position = Vector2(-150, 0)
+script = ExtResource("2")
+
+[node name="Base" type="StaticBody2D" parent="SkillCheckArea" unique_id=107256674]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SkillCheckArea/Base" unique_id=1141503948]
+shape = SubResource("CircleShape2D_1")
+
+[node name="ArmPivot" type="Node2D" parent="SkillCheckArea/Base" unique_id=1967266910]
+
+[node name="Arm" type="Polygon2D" parent="SkillCheckArea/Base/ArmPivot" unique_id=1189379980]
+position = Vector2(7, 71)
+color = Color(0.85, 0.25, 0.15, 1)
+polygon = PackedVector2Array(-32, -71, -7, -17, 20, -71, -7, -186)
+
+[node name="MonsterContainer" type="Node2D" parent="." unique_id=2085942798]
+position = Vector2(150, 0)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=762992073]
+
+[node name="HeartsLabel" type="Label" parent="UI" unique_id=1512108580]
+offset_top = 580.0
+offset_right = 1152.0
+offset_bottom = 620.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 28
+text = "❤️ ❤️ ❤️"
+horizontal_alignment = 1
+vertical_alignment = 1
