@@ -143,7 +143,7 @@ func take_damage_from_monster(amount: int) -> void:
 	player_hp = max(player_hp - amount, 0)
 	_update_hearts()
 	SoundManager.play_monster_attack()
-	SoundManager.play_player_hurt()
+	SoundManager.play_heart_loss()
 	if player_hp <= 0:
 		_game_over()
 

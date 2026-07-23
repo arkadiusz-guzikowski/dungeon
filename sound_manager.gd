@@ -11,6 +11,7 @@ var _trafienie: AudioStream
 var _zombie_spawn: AudioStream
 var _menu_music: AudioStream
 var _game_music: AudioStream
+var _heart_loss: AudioStream
 
 # Głośność poszczególnych dźwięków (do ustawienia w Inspektorze)
 @export var hit_volume: float = -3.0
@@ -39,6 +40,7 @@ func _ready() -> void:
 	_trafienie = load("res://sounds/trafienie.wav")
 	_menu_music = load("res://sounds/Lochy Zamek.mp3")
 	_game_music = load("res://sounds/Zimne Lochy.mp3")
+	_heart_loss = load("res://sounds/strataserduszka.wav")
 
 	_player_player = AudioStreamPlayer2D.new()
 	add_child(_player_player)
@@ -114,6 +116,8 @@ func play_miss() -> void: _play(_player_player, _trafienie, miss_volume)
 func play_player_hurt() -> void: _play(_player_player, _trafienie, player_hurt_volume)
 func play_game_over() -> void: _play(_player_player, _trafienie, game_over_volume)
 func play_swing() -> void: _play(_player_player, _trafienie, swing_volume)
+
+func play_heart_loss() -> void: _play(_player_player, _heart_loss, player_hurt_volume)
 
 func play_monster_hit() -> void: _play(_monster_player, _zombie_spawn, monster_hit_volume)
 func play_monster_die() -> void: _play(_monster_player, _zombie_spawn, monster_die_volume)
